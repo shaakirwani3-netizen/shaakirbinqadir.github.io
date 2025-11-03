@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shaakir Bin Qadir — E-Portfolio</title>
+  <meta name="description" content="E-Portfolio of Shaakir Bin Qadir — B.Pharm student at Lovely Professional University" />
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa7b6;
+      --accent:#6ee7b7;
+      --accent-2:#60a5fa;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      --max-width:980px;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background: linear-gradient(180deg,#071028 0%, #071a2b 50%, #051021 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.46;
+      padding:30px 20px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:18px;
+      padding:28px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+    }
+
+    header{
+      display:flex;
+      gap:20px;
+      align-items:center;
+      margin-bottom:18px;
+    }
+
+    .avatar{
+      min-width:96px;
+      min-height:96px;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--accent), var(--accent-2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      font-size:28px;
+      color:#012424;
+      box-shadow:0 6px 18px rgba(9,46,46,0.25);
+    }
+
+    .title{
+      flex:1;
+      overflow:hidden;
+    }
+
+    .title h1{
+      margin:0;
+      font-size:20px;
+      letter-spacing:0.2px;
+    }
+    .title p{
+      margin:6px 0 0 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .contact{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .chip{
+      background:var(--glass);
+      color:var(--muted);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:13px;
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      text-decoration:none;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    main{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:22px;
+      margin-top:18px;
+    }
+
+    /* left column */
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:18px;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    .section + .section{margin-top:14px}
+
+    h2{
+      margin:0 0 12px 0;
+      font-size:16px;
+      letter-spacing:0.2px;
+    }
+
+    p.lead{color:var(--muted); margin:0 0 10px 0; font-size:15px}
+
+    /* Education timeline */
+    .timeline{display:flex;flex-direction:column;gap:12px}
+    .edu{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .edu .dot{
+      width:12px;height:12px;border-radius:50%;
+      background:var(--accent);
+      margin-top:6px;
+      flex:0 0 12px;
+    }
+    .edu .body{flex:1}
+    .edu .body strong{display:block}
+    .edu .body small{color:var(--muted);display:block;margin-top:6px;font-size:13px}
+
+    /* Skills */
+    .skills{display:flex;gap:8px;flex-wrap:wrap}
+    .skill{
+      background: rgba(255,255,255,0.03);
+      padding:8px 10px;border-radius:10px;font-size:13px;color:var(--muted);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    /* Activities & Interests */
+    .list{display:flex;flex-direction:column;gap:8px}
+    .list .item{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:10px;background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.02)}
+    .muted{color:var(--muted);font-size:13px}
+
+    /* right column */
+    aside{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      position:relative;
+    }
+
+    .contact-card{display:flex;flex-direction:column;gap:12px}
+    .contact-card a{color:var(--accent); text-decoration:none; font-weight:600; word-break:break-all}
+
+    .cta{
+      display:flex;
+      gap:8px;
+      margin-top:8px;
+    }
+    .btn{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#012424;padding:10px 12px;border-radius:10px;text-decoration:none;font-weight:700;
+      display:inline-flex;gap:8px;align-items:center;
+    }
+    .btn.secondary{
+      background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);font-weight:600;
+      padding:10px 12px;border-radius:10px;
+    }
+
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* responsive */
+    @media (max-width:880px){
+      main{grid-template-columns:1fr}
+      aside{order:2}
+    }
+
+    /* print friendly */
+    @media print{
+      body{background:white;color:black}
+      .container{box-shadow:none;border-radius:0;padding:10px}
+      .avatar{background:#ddd;color:#222}
+      .btn, .chip{display:none}
+    }
+
+    /* small utils */
+    .small{font-size:13px;color:var(--muted)}
+    .tag{display:inline-block;background:rgba(255,255,255,0.02);padding:6px 9px;border-radius:8px;font-size:13px;color:var(--muted)}
+    a.link{color:var(--accent-2); text-decoration:none}
+  </style>
+</head>
+<body>
+  <div class="container" role="region" aria-label="E-Portfolio of Shaakir Bin Qadir">
+    <header>
+      <div class="avatar" aria-hidden="true">SB</div>
+      <div class="title">
+        <h1>Shaakir Bin Qadir</h1>
+        <p class="small">B.Pharmacy student — Lovely Professional University</p>
+        <p class="muted" style="margin-top:8px">Location: Jammu &amp; Kashmir • Email: <a class="link" href="mailto:shaakirwani3@gmail.com">shaakirwani3@gmail.com</a></p>
+      </div>
+
+      <div class="contact" aria-hidden="false">
+        <a class="chip" href="mailto:shaakirwani3@gmail.com">✉ shaakirwani3@gmail.com</a>
+        <a class="chip" href="https://www.linkedin.com/in/shaakir-wani-26b06b391?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener">in / Shaakir Bin Qadir</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- left / main content -->
+      <section class="card section" aria-labelledby="about-heading">
+        <h2 id="about-heading">Career Objective</h2>
+        <p class="lead">To build a strong foundation in pharmaceutical sciences and develop the knowledge and skills necessary to contribute effectively to patient care, drug research, and the healthcare industry.</p>
+
+        <div class="section" aria-labelledby="education-heading">
+          <h2 id="education-heading">Education</h2>
+          <div class="timeline">
+            <div class="edu">
+              <div class="dot" aria-hidden="true"></div>
+              <div class="body">
+                <strong>Bachelor of Pharmacy (B.Pharm)</strong>
+                <small>Lovely School of Pharmaceutical Sciences, Lovely Professional University — 1st Semester (2025 - 2029)</small>
+              </div>
+            </div>
+
+            <div class="edu">
+              <div class="dot" aria-hidden="true"></div>
+              <div class="body">
+                <strong>Class 12 — J&K Board</strong>
+                <small>Secondary Education — Completed 2024</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section" aria-labelledby="skills-heading">
+          <h2 id="skills-heading">Skills</h2>
+          <div class="small muted" style="margin-bottom:8px">Grouped for clarity</div>
+
+          <div style="margin-bottom:10px">
+            <div class="tag">Pharmaceutical / Laboratory</div>
+            <div class="tag" style="margin-left:8px">Analytical Thinking</div>
+            <div class="tag" style="margin-left:8px">Ethical Practice</div>
+          </div>
+
+          <div class="skills" aria-hidden="false">
+            <span class="skill">Laboratory Skills</span>
+            <span class="skill">Computer / Digital Proficiency</span>
+            <span class="skill">Critical Thinking</span>
+            <span class="skill">Problem Solving</span>
+            <span class="skill">Communication</span>
+            <span class="skill">Team Collaboration</span>
+            <span class="skill">Leadership</span>
+          </div>
+        </div>
+
+        <div class="section" aria-labelledby="activities-heading">
+          <h2 id="activities-heading">Activities &amp; Interests</h2>
+
+          <div class="list">
+            <div class="item">
+              <div>
+                <strong>Professional Activities</strong>
+                <div class="muted">SHE Conference — Attended & participated</div>
+                <div class="muted" style="margin-top:6px">Pharmacist Day Celebration — Participated to honour pharmacist contributions</div>
+              </div>
+            </div>
+
+            <div class="item" aria-label="Personal interests">
+              <div>
+                <strong>Personal Interests</strong>
+                <div class="muted">Exploring new places, travel &amp; discovering cultures</div>
+                <div class="muted" style="margin-top:6px">Spirituality — mindfulness &amp; personal growth</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section" aria-labelledby="goals-heading">
+          <h2 id="goals-heading">Career Goals</h2>
+          <p class="muted">Pursue internships in pharmaceutical research and clinical pharmacy, develop hands-on laboratory experience, and contribute to patient-centred care and safe medication practices.</p>
+        </div>
+      </section>
+
+      <!-- right / aside -->
+      <aside>
+        <div class="card contact-card" aria-labelledby="contact-heading">
+          <h2 id="contact-heading">Get in Touch</h2>
+          <div class="muted">Feel free to reach out for collaborations, internships, or to connect.</div>
+
+          <div>
+            <div class="small" style="margin-top:8px"><strong>Email</strong></div>
+            <a href="mailto:shaakirwani3@gmail.com">shaakirwani3@gmail.com</a>
+          </div>
+
+          <div>
+            <div class="small" style="margin-top:8px"><strong>LinkedIn</strong></div>
+            <a href="https://www.linkedin.com/in/shaakir-wani-26b06b391?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener">Shaakir Bin Qadir</a>
+          </div>
+
+          <div>
+            <div class="small" style="margin-top:8px"><strong>Location</strong></div>
+            <div class="muted">Jammu &amp; Kashmir, India</div>
+          </div>
+
+          <div class="cta" role="group" aria-label="Actions">
+            <a class="btn" href="mailto:shaakirwani3@gmail.com">✉ Contact</a>
+            <a class="btn secondary" href="#" onclick="window.print();return false;">🖨 Print / Save PDF</a>
+          </div>
+        </div>
+
+        <div class="card" aria-labelledby="summary-heading">
+          <h2 id="summary-heading">Quick Summary</h2>
+          <p class="muted">B.Pharm student (2025–2029) with strong laboratory interest and a commitment to ethical professional standards. Active participant in campus pharmaceutical events and motivated to gain research/clinical experience.</p>
+        </div>
+
+        <div class="card" aria-labelledby="extras-heading">
+          <h2 id="extras-heading">Extras</h2>
+          <div class="small muted">Links & suggestions</div>
+          <ul style="margin:10px 0 0 18px;color:var(--muted)">
+            <li>LinkedIn: keep your profile up to date</li>
+            <li>Consider adding a Projects / Assignments section when you have lab reports or coursework you want to showcase</li>
+            <li>Use the Print / Save PDF button to create a shareable PDF</li>
+          </ul>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Shaakir Bin Qadir — Lovely Professional University · Designed for academic & professional use
+    </footer>
+  </div>
+
+  <script>
+    // small runtime niceties
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Accessibility: keyboard shortcut 'c' to open default mail (convenience)
+    document.addEventListener('keydown', function(e){
+      if((e.key === 'c' || e.key === 'C') && (e.altKey || e.ctrlKey)){
+        window.location.href = 'mailto:shaakirwani3@gmail.com';
+      }
+    });
+  </script>
+</body>
+</html>
